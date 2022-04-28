@@ -1,3 +1,5 @@
+import axios from "axios"  // this is necessary when installed as a package via npm to package.json; if installed using script tag, not needed.
+console.log(axios)
 // 👉 TASK 1- Test out the following endpoints:
 
 //  https://dog.ceo/api/breeds/image/random
