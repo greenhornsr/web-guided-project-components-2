@@ -9,7 +9,11 @@
     "eslint": "^8.10.0",
     "parcel-bundler": "^1.12.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "-": "0.0.1",
+    "g": "^2.0.1",
+    "npm": "^8.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BloomInstituteOfTechnology/web-guided-project-components-2.git"
