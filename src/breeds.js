@@ -1,7 +1,20 @@
-const breeds = [
+export const breeds = [
   'mastiff',
   'affenpinscher',
   'australian',
   'mexicanhairless',
   'cocker',
+  'labrador',
+  'pitbull',
+  'husky',
+  'bulldog',
+  'beagle',
+  'chihuahua',
+  'boxer',
+  'hound',
+  'terrier',
+  'poodle',
+  'rottweiler',
+  'collie',
+  'dobermann'
 ]

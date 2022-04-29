@@ -1,4 +1,7 @@
 import axios from "axios"  // this is necessary when installed as a package via npm to package.json; if installed using script tag, not needed.
+import {breeds} from './breeds'
+
+// console.table(breeds)
 
 // Other API Test URL & Endpoints
 'https://lambda-times-api.herokuapp.com/friends'
@@ -72,6 +75,15 @@ function dogCardMaker({ imageURL, breed }) {
   return dogCard
 }
 
+// clear dogCards
+function removeDogCards() {
+  let child = entryPoint.lastElementChild
+  while(child){
+    entryPoint.removeChild(child)
+    child = entryPoint.lastElementChild
+  }
+}
+
 
 // 👉 TASK 4- Bring the Axios library into the project using one of two methods:
 //    * Traditional way: put another script tag inside index.html (`https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js`)
@@ -98,20 +110,31 @@ const fetchDogs = (breed, quantity) => {
     const errorH1 = document.createElement('h3')
     errorH1.textContent = `${err.response.status}: ${err.response.data.message}`
     entryPoint.append(errorH1)
-    console.log(err)
+    setTimeout(() => {
+      entryPoint.remove(errorH1)
+    }, 5000)
+    // console.log(err)
     // debugger
   })
 } 
 
-fetchDogs('husky', 6)
+// fetchDogs('husky', 6)
 
 // 👉 (OPTIONAL) TASK 6- Wrap the fetching operation inside a function `getDogs`
 // that takes a breed and a count (of dogs)
+
 // ** COMPLETE **
 
 
 // 👉 (OPTIONAL) TASK 7- Put a button in index.html to 'get dogs' and add a click
 // event listener that executes `getDogs`
+const dogButton = document.querySelector('#get-dogs')
+dogButton.style.backgroundColor = 'yellow'
+dogButton.addEventListener('click', () => {
+  removeDogCards() 
+  const randomBreed = Math.floor(Math.random() * breeds.length-1)
+  fetchDogs(breeds[randomBreed], 9)
+})
 
 
 // 👉 (OPTIONAL) TASK 8- Import the breeds from `breeds.js`
