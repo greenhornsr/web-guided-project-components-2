@@ -126,8 +126,20 @@ const fetchDogs = (breed, quantity) => {
 
 // 👉 (OPTIONAL) TASK 7- Put a button in index.html to 'get dogs' and add a click
 // event listener that executes `getDogs`
-const dogButton = document.querySelector('#get-dogs')
-dogButton.style.backgroundColor = 'yellow'
+
+// Select getDogs button
+const dogButton = document.querySelector('#get-dogs');
+dogButton.style.backgroundColor = 'yellow';
+// Adding Hover effects and basic styling
+dogButton.addEventListener('mouseenter', () => {
+  dogButton.style.backgroundColor = 'lightgreen';
+  dogButton.style.fontWeight = 'bold';
+});
+dogButton.addEventListener('mouseleave', () => {
+  dogButton.style.backgroundColor = 'yellow';
+  dogButton.style.fontWeight = 'normal';
+})
+// Adding click event functionality to randomize a breed from breeds.js array and clearing out childNodes from any prior 'getDogs' api response events.
 dogButton.addEventListener('click', () => {
   if(entryPoint.hasChildNodes){
     removeDogCards() 
