@@ -111,14 +111,12 @@ const fetchDogs = (breed, quantity) => {
     errorH1.textContent = `${err.response.status}: ${err.response.data.message}`
     entryPoint.append(errorH1)
     setTimeout(() => {
-      entryPoint.remove(errorH1)
-    }, 5000)
+      entryPoint.removeChild(errorH1)
+    }, 3000)
     // console.log(err)
     // debugger
   })
 } 
-
-// fetchDogs('husky', 6)
 
 // 👉 (OPTIONAL) TASK 6- Wrap the fetching operation inside a function `getDogs`
 // that takes a breed and a count (of dogs)
@@ -131,7 +129,10 @@ const fetchDogs = (breed, quantity) => {
 const dogButton = document.querySelector('#get-dogs')
 dogButton.style.backgroundColor = 'yellow'
 dogButton.addEventListener('click', () => {
-  removeDogCards() 
+  if(entryPoint.hasChildNodes){
+    removeDogCards() 
+  }
+  // console.table(entryPoint.hasChildNodes())
   const randomBreed = Math.floor(Math.random() * breeds.length-1)
   fetchDogs(breeds[randomBreed], 9)
 })
@@ -139,3 +140,5 @@ dogButton.addEventListener('click', () => {
 
 // 👉 (OPTIONAL) TASK 8- Import the breeds from `breeds.js`
 // and loop over them, fetching a dog at each iteration
+
+// ** COMPLETE - with dynamic breed fetching on button click instead of iteration **
